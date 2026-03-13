@@ -1,0 +1,218 @@
+---
+import Layout from "../layouts/layout.astro";
+---
+
+<Layout title="Contact">
+  <head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  </head>
+
+  <section class="relative">
+    <div class="relative h-[300px] w-full bg-slate-900 overflow-hidden">
+      <div class="absolute inset-0 w-full h-full opacity-40 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');"></div>
+      <div class="absolute inset-0 flex items-center justify-start max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-wide uppercase">Contact Us</h1>
+      </div>
+    </div>
+
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 -mt-20 mb-20">
+      <div class="flex flex-col lg:flex-row gap-8">
+        <div class="w-full lg:w-1/3 flex flex-col gap-6 mt-16 lg:mt-0">
+          <div class="bg-white p-8 rounded shadow flex flex-col items-center text-center">
+            <div class="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center mb-4">
+              <i class="fas fa-phone-alt text-2xl text-blue-500"></i>
+            </div>
+            <h3 class="font-bold text-lg mb-2">Give us a call</h3>
+            <p class="text-gray-600 text-sm mb-1">+91 8042041535</p>
+            <p class="text-gray-600 text-sm">+91 9071998946</p>
+          </div>
+
+          <div class="bg-white p-8 rounded shadow flex flex-col items-center text-center">
+            <div class="w-16 h-16 bg-orange-50 rounded-full flex items-center justify-center mb-4">
+              <i class="fas fa-envelope-open-text text-2xl text-orange-400"></i>
+            </div>
+            <h3 class="font-bold text-lg mb-2">Drop us a line</h3>
+            <p class="text-gray-600 text-sm">info@cezentech.com</p>
+          </div>
+        </div>
+
+        <div class="w-full lg:w-2/3">
+          <div class="bg-white p-8 md:p-12 rounded shadow-lg">
+            <div class="text-center mb-8">
+              <h4 class="text-blue-600 font-bold text-xs tracking-widest uppercase mb-2">REQUEST A QUOTE</h4>
+              <h2 class="text-3xl md:text-4xl font-bold text-gray-800">How May We Help You!</h2>
+            </div>
+
+            <form class="space-y-6">
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <input type="text" placeholder="Name *" class="form-input" required />
+                </div>
+                <div>
+                  <input type="email" placeholder="Email *" class="form-input" required />
+                </div>
+              </div>
+              <div>
+                <input type="text" placeholder="Subject *" class="form-input" required />
+              </div>
+              <div>
+                <textarea placeholder="Write A Message" rows="5" class="form-input resize-none" required></textarea>
+              </div>
+              <button type="button" class="w-full py-4 bg-[#2176ff] hover:bg-blue-700 text-white font-semibold rounded transition-colors text-sm">Send Message</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+        <div class="bg-white rounded shadow map-card overflow-hidden flex flex-col">
+          <div class="p-8 text-center flex flex-col items-center flex-grow">
+            <i class="fas fa-map-marker-alt text-4xl text-[#ff003c] mb-4"></i>
+            <h3 class="font-bold text-xl mb-4">Headquarters</h3>
+            <p class="text-gray-500 text-sm leading-relaxed">Cezen Technologies Pvt Ltd<br>145/5, 1st Floor, 9th Main, Malleshpalaya,<br>New Tippasandra, Bangalore, Karnataka,<br>India, PIN 560075</p>
+          </div>
+          <div class="h-48 w-full bg-gray-200">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1m2!1s0x3bae13fc0bdcbddf%3A0x6b4fb664fc8b99c!2sMalleshpalaya%2C%20Bengaluru%2C%20Karnataka!5e0!3m2!1sen!2sin!4v1680000000000!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div>
+
+        <div class="bg-white rounded shadow map-card overflow-hidden flex flex-col">
+          <div class="p-8 text-center flex flex-col items-center flex-grow">
+            <i class="fas fa-map-marker-alt text-4xl text-[#ff003c] mb-4"></i>
+            <h3 class="font-bold text-xl mb-4">Delhi</h3>
+            <p class="text-gray-500 text-sm leading-relaxed">Cezen Technologies Pvt Ltd<br>Block B-1/632, 2nd Floor, Janakpuri, New<br>Delhi, India, PIN 110058</p>
+          </div>
+          <div class="h-48 w-full bg-gray-200">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1m2!1s0x390d04b6b649a371%3A0x72691cb520b22a61!2sJanakpuri%2C%20New%20Delhi%2C%20Delhi!5e0!3m2!1sen!2sin!4v1680000000000!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div>
+
+        <div class="bg-white rounded shadow map-card overflow-hidden flex flex-col">
+          <div class="p-8 text-center flex flex-col items-center flex-grow">
+            <i class="fas fa-map-marker-alt text-4xl text-[#ff003c] mb-4"></i>
+            <h3 class="font-bold text-xl mb-4">Hyderabad</h3>
+            <p class="text-gray-500 text-sm leading-relaxed">Cezen Technologies Pvt Ltd<br>L1, Regus Hyderabad Midtown, Road<br>No:1, Banjara Hills Opp.Jalagam Vengal<br>Rao Park, Hyderabad, Telangana,<br>India, PIN 500034</p>
+          </div>
+          <div class="h-48 w-full bg-gray-200">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1m2!1s0x3bcb9772d5b610ff%3A0x2a210ff98cf5268c!2sBanjara%20Hills%2C%20Hyderabad%2C%20Telangana!5e0!3m2!1sen!2sin!4v1680000000000!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-white rounded shadow map-card overflow-hidden flex flex-col md:col-start-1">
+          <div class="p-8 text-center flex flex-col items-center flex-grow">
+            <i class="fas fa-map-marker-alt text-4xl text-[#ff003c] mb-4"></i>
+            <h3 class="font-bold text-xl mb-4">Cochin</h3>
+            <p class="text-gray-500 text-sm leading-relaxed">Cezen Technologies Pvt Ltd<br>R-5, Beyond Co-Working, 90 A (Door<br>No.55/1171), Canal Road, Girinagar,<br>Cochin, Kerala, India, PIN 682020</p>
+          </div>
+          <div class="h-48 w-full bg-gray-200">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1m2!1s0x3b080ce0fcd82875%3A0xeab4dd764720e77d!2sGirinagar%2C%20Kochi%2C%20Kerala!5e0!3m2!1sen!2sin!4v1680000000000!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div>
+
+        <div class="bg-white rounded shadow map-card overflow-hidden flex flex-col">
+          <div class="p-8 text-center flex flex-col items-center flex-grow">
+            <i class="fas fa-map-marker-alt text-4xl text-[#ff003c] mb-4"></i>
+            <h3 class="font-bold text-xl mb-4">Trivandrum</h3>
+            <p class="text-gray-500 text-sm leading-relaxed">Cezen Technologies Pvt Ltd<br>TC 24/3088, Dotspace Business Centre,<br>Ushasandya Building, Opposite Tennis<br>Club, Kowdiar, Trivandrum,<br>India, PIN 695003</p>
+          </div>
+          <div class="h-48 w-full bg-gray-200">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1m2!1s0x3b05bbc987ab8c9b%3A0xc34a17441decf0f5!2sKowdiar%2C%20Thiruvananthapuram%2C%20Kerala!5e0!3m2!1sen!2sin!4v1680000000000!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="wave-container">
+      <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <defs>
+          <linearGradient id="waveGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
+            <stop offset="50%" style="stop-color:#8b5cf6;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#020617;stop-opacity:1" />
+          </linearGradient>
+        </defs>
+        <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V120H0Z" fill="url(#waveGrad)"></path>
+      </svg>
+    </div>
+
+    <footer class="bg-[#020617] text-white pt-16 pb-20">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
+          <div class="col-span-1 lg:col-span-1">
+            <div class="flex items-center gap-2 mb-6">
+              <svg width="30" height="30" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g transform="translate(50, 50)">
+                  <polygon points="0,0 0,-45 -38.97,-22.5" fill="#ffffff" />
+                  <polygon points="0,0 -38.97,-22.5 -38.97,22.5" fill="#ffffff" />
+                  <polygon points="0,0 -38.97,22.5 0,45" fill="#ffffff" />
+                  <polygon points="0,0 0,45 38.97,22.5" fill="#ffffff" />
+                  <polygon points="0,0 38.97,-22.5 0,-45" fill="#ffffff" />
+                </g>
+              </svg>
+              <span class="font-bold text-xl font-poppins text-white">cezentech</span>
+            </div>
+            <p class="text-gray-400 text-xs leading-relaxed mb-8 pr-4">Founded by a team of seasoned professionals, we embarked on a mission to empower organizations with cutting-edge technology, innovative strategies, and expert guidance.</p>
+            <h4 class="font-bold text-sm mb-4">About Us</h4>
+            <ul class="space-y-2 text-xs text-gray-400">
+              <li><a href="#" class="hover:text-white transition-colors">Our Story</a></li>
+              <li><a href="#" class="hover:text-white transition-colors">The Team</a></li>
+            </ul>
+          </div>
+
+          <div class="col-span-1 lg:col-span-1">
+            <h4 class="font-bold text-sm mb-4">Solutions</h4>
+            <ul class="space-y-2 text-xs text-gray-400 mb-8">
+              <li><a href="#" class="hover:text-white transition-colors">On-Prem Data Center & Cloud Solutions</a></li>
+            </ul>
+            <h4 class="font-bold text-sm mb-4">Services</h4>
+            <ul class="space-y-2 text-xs text-gray-400">
+              <li><a href="#" class="hover:text-white transition-colors">Managed IT Services</a></li>
+            </ul>
+          </div>
+
+          <div class="col-span-1 lg:col-span-1">
+            <h4 class="font-bold text-sm mb-4">Contact</h4>
+            <ul class="space-y-4 text-xs text-gray-400 mb-6">
+              <li class="flex items-center gap-2"><i class="fas fa-phone-alt text-blue-500 w-4"></i> +91 8042041535</li>
+              <li class="flex items-center gap-2"><i class="far fa-envelope text-blue-500 w-4"></i> info@cezentech.com</li>
+              <li class="flex items-center gap-2"><i class="fas fa-globe text-blue-500 w-4"></i> www.cezentech.com</li>
+            </ul>
+            <div class="flex gap-2 mb-8">
+              <a href="#" class="w-8 h-8 rounded-full bg-white flex items-center justify-center text-[#020617] hover:bg-gray-200 transition-colors"><i class="fab fa-facebook-f text-sm"></i></a>
+              <a href="#" class="w-8 h-8 rounded-full bg-white flex items-center justify-center text-[#020617] hover:bg-gray-200 transition-colors"><i class="fab fa-twitter text-sm"></i></a>
+            </div>
+          </div>
+
+          <div class="col-span-1 lg:col-span-2">
+            <h4 class="font-bold text-sm mb-4">Address</h4>
+            <div class="space-y-6 text-xs text-gray-400">
+              <div>
+                <strong class="text-white block mb-1">Bangalore :</strong>
+                <p>Cezen Technologies Pvt Ltd<br>145/5, 1st Floor, 9th Main, Malleshpalaya, New<br>Tippasandra, Bangalore, Karnataka,<br>India, PIN 560075</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  </section>
+
+  <style is:global>
+    .map-card { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+    .map-card:hover { transform: translateY(-5px); box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04); }
+    .form-input { width:100%; padding:12px 16px; border:1px solid #e2e8f0; border-radius:4px; font-size:14px; outline:none; transition:border-color .2s; background-color:#fff; }
+    .form-input:focus { border-color:#3b82f6; }
+    .wave-container { width:100%; overflow:hidden; line-height:0; background-color: #fafafa; }
+    .wave-container svg { position:relative; display:block; width:calc(100% + 1.3px); height:120px; }
+    ::-webkit-scrollbar { width:6px; }
+    ::-webkit-scrollbar-track { background:#f1f1f1; }
+    ::-webkit-scrollbar-thumb { background:#cbd5e1; border-radius:10px; }
+    ::-webkit-scrollbar-thumb:hover { background:#94a3b8; }
+  </style>
+
+</Layout>

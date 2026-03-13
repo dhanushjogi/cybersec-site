@@ -1,0 +1,79 @@
+---
+import '../styles/global.css';
+const { title } = Astro.props;
+---
+
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width" />
+<title>{title}</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+#cyber-canvas{position:absolute;top:0;left:0;width:100%;height:100%;z-index:0;opacity:0.6}
+/* ensure the canvas doesn't block interactions */
+#cyber-canvas{pointer-events:none}
+.scanlines{position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(to bottom,rgba(255,255,255,0),rgba(255,255,255,0) 50%,rgba(0,0,0,0.1) 50%,rgba(0,0,0,0.1));background-size:100% 4px;z-index:1;pointer-events:none}
+.hero-content{position:absolute;inset:0;z-index:30;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 20px}
+/* position main so absolute canvas and scanlines layer correctly */
+main{position:relative;z-index:20}
+</style>
+</head>
+
+<body class="antialiased bg-[#020617] text-[#f8fafc] font-['Inter']">
+		<header class="relative z-20 bg-gray-900 border-b border-gray-800">
+				<div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+						<div class="flex items-center gap-4">
+
+								<img src="/cezentech-logo.svg" alt="Cezen Tech" class="h-15" />
+
+						</div>
+						<nav class="hidden md:flex items-center gap-8 text-sm text-gray-300">
+								<a href="/" class="hover:text-blue-400">Home</a>
+								<a href="/services" class="hover:text-blue-400">Services</a>
+								<a href="/industries" class="hover:text-blue-400">Industries</a>
+								<a href="/partners" class="hover:text-blue-400">Partners</a>
+								<a href="/contact" class="hover:text-blue-400">Contact</a>
+						</nav>
+				</div>
+		</header>
+
+		<canvas id="cyber-canvas"></canvas>
+		<div class="scanlines"></div>
+
+		<slot />
+
+<script>
+// Canvas rain animation moved to layout so pages don't include html/body tags
+const canvas = document.getElementById('cyber-canvas');
+if(canvas){
+	const ctx = canvas.getContext('2d');
+	let width,height;
+	function resize(){width=canvas.width=window.innerWidth;height=canvas.height=window.innerHeight;initRain();}
+	window.addEventListener('resize',resize);
+	const rainChars='01'.split('');
+	const fontSize=16;let columns;let drops=[];
+	function initRain(){columns=Math.floor(width/fontSize);drops=[];for(let x=0;x<columns;x++) drops[x]=Math.random()*-100;}
+	function drawRain(){
+		ctx.fillStyle='rgba(2,6,23,0.1)';
+		ctx.fillRect(0,0,width,height);
+		ctx.font=fontSize+'px monospace';
+		for(let i=0;i<drops.length;i++){
+			const text=rainChars[Math.floor(Math.random()*rainChars.length)];
+			ctx.fillStyle='#1e3a8a';
+			ctx.fillText(text,i*fontSize,drops[i]*fontSize);
+			if(drops[i]*fontSize>height && Math.random()>0.975){drops[i]=0;}
+			drops[i]++;
+		}
+	}
+	function animate(){requestAnimationFrame(animate);drawRain();}
+	resize();animate();
+}
+</script>
+
+</body>
+
+</html>
