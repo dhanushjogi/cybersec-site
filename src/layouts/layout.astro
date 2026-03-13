@@ -41,38 +41,7 @@ main{position:relative;z-index:20}
 				</div>
 		</header>
 
-		<canvas id="cyber-canvas"></canvas>
-		<div class="scanlines"></div>
-
 		<slot />
-
-<script>
-// Canvas rain animation moved to layout so pages don't include html/body tags
-const canvas = document.getElementById('cyber-canvas');
-if(canvas){
-	const ctx = canvas.getContext('2d');
-	let width,height;
-	function resize(){width=canvas.width=window.innerWidth;height=canvas.height=window.innerHeight;initRain();}
-	window.addEventListener('resize',resize);
-	const rainChars='01'.split('');
-	const fontSize=16;let columns;let drops=[];
-	function initRain(){columns=Math.floor(width/fontSize);drops=[];for(let x=0;x<columns;x++) drops[x]=Math.random()*-100;}
-	function drawRain(){
-		ctx.fillStyle='rgba(2,6,23,0.1)';
-		ctx.fillRect(0,0,width,height);
-		ctx.font=fontSize+'px monospace';
-		for(let i=0;i<drops.length;i++){
-			const text=rainChars[Math.floor(Math.random()*rainChars.length)];
-			ctx.fillStyle='#1e3a8a';
-			ctx.fillText(text,i*fontSize,drops[i]*fontSize);
-			if(drops[i]*fontSize>height && Math.random()>0.975){drops[i]=0;}
-			drops[i]++;
-		}
-	}
-	function animate(){requestAnimationFrame(animate);drawRain();}
-	resize();animate();
-}
-</script>
 
 </body>
 
