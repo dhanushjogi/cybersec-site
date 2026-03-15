@@ -1,0 +1,71 @@
+---
+interface FooterLink {
+  name: string;
+  href: string;
+}
+
+const quickLinks: FooterLink[] = [
+  { name: 'Home', href: '/' },
+  { name: 'Services', href: '/services' },
+  { name: 'Industries', href: '/industries' },
+  { name: 'Contact', href: '/contact' },
+];
+
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="bg-gray-950 border-t border-gray-800 py-12 mt-20">
+  <div class="max-w-6xl mx-auto px-4">
+    <!-- Footer Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+      <!-- Company Info -->
+      <div>
+        <h3 class="text-white font-bold mb-4">About Cezentech</h3>
+        <p class="text-gray-400 text-sm leading-relaxed">
+          Enterprise-grade cybersecurity solutions for modern IT infrastructure with 24/7 SOC monitoring and threat intelligence.
+        </p>
+      </div>
+
+      <!-- Quick Links -->
+      <div>
+        <h3 class="text-white font-bold mb-4">Quick Links</h3>
+        <ul class="space-y-2">
+          {quickLinks.map((link) => (
+            <li>
+              <a 
+                href={link.href}
+                class="text-gray-400 hover:text-blue-400 text-sm transition-colors"
+              >
+                {link.name}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Contact Info -->
+      <div>
+        <h3 class="text-white font-bold mb-4">Contact</h3>
+        <p class="text-gray-400 text-sm mb-2">
+          Email: <a href="mailto:info@cezentech.com" class="hover:text-blue-400 transition-colors">info@cezentech.com</a>
+        </p>
+        <p class="text-gray-400 text-sm">
+          Phone: <a href="tel:+1234567890" class="hover:text-blue-400 transition-colors">+1 (234) 567-890</a>
+        </p>
+      </div>
+    </div>
+
+    <!-- Divider -->
+    <div class="border-t border-gray-800 pt-8">
+      <!-- Copyright -->
+      <div class="flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
+        <p>&copy; {currentYear} Cezentech. All rights reserved.</p>
+        <div class="flex gap-6 mt-4 md:mt-0">
+          <a href="#" class="hover:text-gray-400 transition-colors" aria-label="Privacy Policy">Privacy Policy</a>
+          <a href="#" class="hover:text-gray-400 transition-colors" aria-label="Terms of Service">Terms of Service</a>
+          <a href="#" class="hover:text-gray-400 transition-colors" aria-label="Security">Security</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
