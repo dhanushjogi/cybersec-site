@@ -1,0 +1,47 @@
+---
+interface NavLink {
+  name: string;
+  href: string;
+}
+
+const navLinks: NavLink[] = [
+  { name: 'Home', href: '/' },
+  { name: 'Services', href: '/services' },
+  { name: 'Industries', href: '/industries' },
+  { name: 'Partners', href: '/partners' },
+  { name: 'Contact', href: '/contact' },
+];
+---
+
+<header class="relative z-20 bg-gray-900 border-b border-gray-800">
+  <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+    <!-- Logo -->
+    <div class="flex items-center gap-4">
+      <img src="/cezentech-logo.svg" alt="Cezen Tech" class="h-15" />
+    </div>
+    
+    <!-- Navigation Links -->
+    <nav class="hidden md:flex items-center gap-8 text-sm text-gray-300" aria-label="Main navigation">
+      {navLinks.map((link) => (
+        <a 
+          href={link.href}
+          class="hover:text-blue-400 transition-colors"
+          aria-current={Astro.url.pathname === link.href ? 'page' : undefined}
+        >
+          {link.name}
+        </a>
+      ))}
+    </nav>
+  </div>
+</header>
+
+<style>
+  header {
+    backdrop-filter: blur(8px);
+  }
+
+  a[aria-current='page'] {
+    color: #60a5fa;
+    font-weight: 600;
+  }
+</style>
