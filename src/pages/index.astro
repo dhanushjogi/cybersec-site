@@ -9,6 +9,8 @@ import CyberHomeSections from '../components/CyberHomeSections.astro';
 
     <!-- Hero Content -->
     <div class="hero-content absolute inset-0 flex flex-col items-center justify-center text-center px-6">
+    <!-- Data Rain Effect Canvas -->
+    <canvas id="dataRain" class="absolute inset-0 w-full h-full"></canvas>
 
     <h1 class="text-5xl md:text-6xl font-bold text-white mb-6">
     Complete <span class="text-blue-400">Cybersecurity</span> Solutions
@@ -211,3 +213,52 @@ infraSelect.addEventListener("change", updateGlobalRecommendation);
 securitySelect.addEventListener("change", updateGlobalRecommendation);
 
 <!-- canvas animation script moved into layout.astro -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const canvas = document.getElementById('dataRain');
+    if (!canvas) return;
+    
+    const ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    
+    // Characters to rain
+    const chars = '01アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン';
+    const charArray = chars.split('');
+    
+    // Column properties
+    const fontSize = 16;
+    const columns = canvas.width / fontSize;
+    const drops = Array(Math.floor(columns)).fill(0);
+    
+    function draw() {
+      // Semi-transparent background to create trail effect
+      ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      
+      // Set text style
+      ctx.fillStyle = '#0F0';
+      ctx.font = fontSize + 'px monospace';
+      
+      for (let i = 0; i < drops.length; i++) {
+        const char = charArray[Math.floor(Math.random() * charArray.length)];
+        ctx.fillText(char, i * fontSize, drops[i] * fontSize);
+        
+        // Reset drop when it reaches bottom
+        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+          drops[i] = 0;
+        }
+        drops[i]++;
+      }
+    }
+    
+    // Animation loop
+    setInterval(draw, 50);
+    
+    // Handle window resize
+    window.addEventListener('resize', function() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    });
+  });
+</script>
