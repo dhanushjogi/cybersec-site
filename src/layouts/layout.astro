@@ -1,48 +1,80 @@
 ---
+import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
 import '../styles/global.css';
+
 const { title } = Astro.props;
 ---
 
 <html lang="en">
-<head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width" />
-<title>{title}</title>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
 
-<style>
-#cyber-canvas{position:absolute;top:0;left:0;width:100%;height:100%;z-index:0;opacity:0.6}
-/* ensure the canvas doesn't block interactions */
-#cyber-canvas{pointer-events:none}
-.scanlines{position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(to bottom,rgba(255,255,255,0),rgba(255,255,255,0) 50%,rgba(0,0,0,0.1) 50%,rgba(0,0,0,0.1));background-size:100% 4px;z-index:1;pointer-events:none}
-.hero-content{position:absolute;inset:0;z-index:30;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 20px}
-/* position main so absolute canvas and scanlines layer correctly */
-main{position:relative;z-index:20}
-</style>
-</head>
+    <style>
+      #cyber-canvas {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+        opacity: 0.6;
+        pointer-events: none;
+      }
 
-<body class="antialiased bg-[#020617] text-[#f8fafc] font-['Inter']">
-		<header class="relative z-20 bg-gray-900 border-b border-gray-800">
-				<div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
-						<div class="flex items-center gap-4">
+      .scanlines {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          to bottom,
+          rgba(255, 255, 255, 0),
+          rgba(255, 255, 255, 0) 50%,
+          rgba(0, 0, 0, 0.1) 50%,
+          rgba(0, 0, 0, 0.1)
+        );
+        background-size: 100% 4px;
+        z-index: 1;
+        pointer-events: none;
+      }
 
-								<img src="/cezentech-logo.svg" alt="Cezen Tech" class="h-15" />
+      .hero-content {
+        position: absolute;
+        inset: 0;
+        z-index: 30;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 0 20px;
+      }
 
-						</div>
-						<nav class="hidden md:flex items-center gap-8 text-sm text-gray-300">
-								<a href="/" class="hover:text-blue-400">Home</a>
-								<a href="/services" class="hover:text-blue-400">Services</a>
-								<a href="/industries" class="hover:text-blue-400">Industries</a>
-								<a href="/partners" class="hover:text-blue-400">Partners</a>
-								<a href="/contact" class="hover:text-blue-400">Contact</a>
-						</nav>
-				</div>
-		</header>
+      main {
+        position: relative;
+        z-index: 20;
+      }
+    </style>
+  </head>
 
-		<slot />
-
-</body>
-
+  <body class="antialiased bg-[#020617] text-[#f8fafc] font-['Inter']">
+    <Navigation />
+    <main>
+      <slot />
+    </main>
+    <Footer />
+  </body>
 </html>
