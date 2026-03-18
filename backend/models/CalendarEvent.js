@@ -29,6 +29,16 @@ const calendarEventSchema = new mongoose.Schema(
     allDay: {
       type: Boolean,
       default: false
+          location: {
+      type: String,
+      trim: true,
+      maxlength: 200
+    },
+    priority: {
+      type: String,
+      enum: ['low', 'medium', 'high'],
+      default: 'medium'
+    },
     },
     color: {
       type: String,
