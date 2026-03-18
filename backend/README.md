@@ -65,7 +65,7 @@ cp .env.example .env
 
 - `MONGODB_URI` - Your MongoDB connection string
 - `JWT_SECRET` - Secret key for JWT tokens
-- `EMAIL_HOST`, `EMAIL_PORT`, `EMAIL_USER`, `EMAIL_PASS` - SMTP credentials
+- `EMAIL_HOST`, `EMAIL_PORT`, `EMAIL_USER`, `EMAIL_PASS` - SMTP credentials, `EMAIL_RECEIVER` - Email address to receive contact form submissions, `EMAIL_SECURE` - TLS/SSL setting for SMTP
 
 ### Run the Server
 
