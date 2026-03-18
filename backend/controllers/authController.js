@@ -9,9 +9,9 @@ const generateToken = (id) => {
   });
 };
 
-// @desc    Register a new user
-// @route   POST /api/auth/register
-// @access  Public
+// @desc   Register a new user
+// @route  POST /api/auth/register
+// @access Public
 const registerUser = async (req, res) => {
   try {
     const { name, email, password } = req.body;
@@ -41,9 +41,9 @@ const registerUser = async (req, res) => {
   }
 };
 
-// @desc    Login user
-// @route   POST /api/auth/login
-// @access  Public
+// @desc   Login user
+// @route  POST /api/auth/login
+// @access Public
 const loginUser = async (req, res) => {
   try {
     const { email, password } = req.body;
@@ -66,9 +66,9 @@ const loginUser = async (req, res) => {
   }
 };
 
-// @desc    Get user profile
-// @route   GET /api/auth/profile
-// @access  Private
+// @desc   Get user profile
+// @route  GET /api/auth/profile
+// @access Private
 const getUserProfile = async (req, res) => {
   try {
     const user = await User.findById(req.user._id);
@@ -87,9 +87,9 @@ const getUserProfile = async (req, res) => {
   }
 };
 
-// @desc    Update user profile
-// @route   PUT /api/auth/profile
-// @access  Private
+// @desc   Update user profile
+// @route  PUT /api/auth/profile
+// @access Private
 const updateProfile = async (req, res) => {
   try {
     const { name } = req.body;
@@ -112,9 +112,9 @@ const updateProfile = async (req, res) => {
   }
 };
 
-// @desc    Change password
-// @route   PUT /api/auth/password
-// @access  Private
+// @desc   Change password
+// @route  PUT /api/auth/password
+// @access Private
 const changePassword = async (req, res) => {
   try {
     const { currentPassword, newPassword } = req.body;
@@ -131,9 +131,9 @@ const changePassword = async (req, res) => {
   }
 };
 
-// @desc    Forgot password (send reset email)
-// @route   POST /api/auth/forgot-password
-// @access  Public
+// @desc   Forgot password (send reset email)
+// @route  POST /api/auth/forgot-password
+// @access Public
 const forgotPassword = async (req, res) => {
   try {
     const { email } = req.body;
@@ -154,19 +154,16 @@ const forgotPassword = async (req, res) => {
   }
 };
 
-// @desc    Reset password with token
-// @route   POST /api/auth/reset-password/:token
-// @access  Public
+// @desc   Reset password with token
+// @route  POST /api/auth/reset-password/:token
+// @access Public
 const resetPassword = async (req, res) => {
   try {
     const resetPasswordToken = crypto
       .createHash('sha256')
       .update(req.params.token)
       .digest('hex');
-    const user = await User.findOne({
-      resetPasswordToken,
-      resetPasswordExpire: { $gt: Date.now() }
-    });
+    const user = await User.findOne({ resetPasswordToken, resetPasswordExpire: { $gt: Date.now() } });
     if (!user) {
       return res.status(400).json({ message: 'Invalid or expired reset token' });
     }
@@ -180,14 +177,4 @@ const resetPassword = async (req, res) => {
   }
 };
 
-module.exports = {
-  registerUser,
-  login,
-  getUserProfile,
-  updateProfile,
-  changePassword,
-  forgotPassword,
-  resetPassword
-};
-
-module.exports = { registerUser, loginUser, getUserProfile };
+module.exports = { registerUser, loginUser, getUserProfile, updateProfile, changePassword, forgotPassword, resetPassword };
