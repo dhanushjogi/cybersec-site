@@ -164,12 +164,15 @@ import CyberHomeSections from '../components/CyberHomeSections.astro';
 </Layout>
 
 <script>
-  const industrySelect = document.getElementById("industry-select");
-  const infraSelect = document.getElementById("infra-select");
-  const securitySelect = document.getElementById("security-select");
-  const resultBox = document.getElementById("global-recommendation");
+  // Type-safe element selection with null checks
+  const industrySelect = document.getElementById("industry-select") as HTMLSelectElement | null;
+  const infraSelect = document.getElementById("infra-select") as HTMLSelectElement | null;
+  const securitySelect = document.getElementById("security-select") as HTMLSelectElement | null;
+  const resultBox = document.getElementById("global-recommendation") as HTMLElement | null;
   
-  function updateGlobalRecommendation() {
+  function updateGlobalRecommendation(): void {
+    if (!industrySelect || !infraSelect || !securitySelect || !resultBox) return;
+    
     const industry = industrySelect.value;
     const infra = infraSelect.value;
     const security = securitySelect.value;
@@ -179,7 +182,7 @@ import CyberHomeSections from '../components/CyberHomeSections.astro';
       return;
     }
     
-    const mapping = {
+    const mapping: Record<string, string> = {
       "manufacturing-dlp": "Forcepoint → Forcepoint DLP",
       "manufacturing-edr": "SentinelOne / Trellix → EDR Protection",
       "manufacturing-vuln": "Tenable → Nessus Vulnerability Scanner",
@@ -194,18 +197,22 @@ import CyberHomeSections from '../components/CyberHomeSections.astro';
     resultBox.textContent = mapping[key] || "Recommended OEM Vendor: Trellix Security Platform";
   }
   
-  industrySelect.addEventListener("change", updateGlobalRecommendation);
-  infraSelect.addEventListener("change", updateGlobalRecommendation);
-  securitySelect.addEventListener("change", updateGlobalRecommendation);
+  if (industrySelect && infraSelect && securitySelect) {
+    industrySelect.addEventListener("change", updateGlobalRecommendation);
+    infraSelect.addEventListener("change", updateGlobalRecommendation);
+    securitySelect.addEventListener("change", updateGlobalRecommendation);
+  }
 </script>
 
-<!-- Data Rain Animation Script -->
 <script>
+  // Data Rain Animation Script with proper type safety
   document.addEventListener('DOMContentLoaded', function() {
-    const canvas = document.getElementById('dataRain');
+    const canvas = document.getElementById('dataRain') as HTMLCanvasElement | null;
     if (!canvas) return;
     
     const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+    
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
     
@@ -216,9 +223,11 @@ import CyberHomeSections from '../components/CyberHomeSections.astro';
     // Column properties
     const fontSize = 14;
     const columns = canvas.width / fontSize;
-    const drops = Array(Math.floor(columns)).fill(0);
+    const drops: number[] = Array(Math.floor(columns)).fill(0);
     
-    function draw() {
+    function draw(): void {
+      if (!ctx || !canvas) return;
+      
       // Semi-transparent background to create trail effect - darker for better text contrast
       ctx.fillStyle = 'rgba(2, 6, 23, 0.08)';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
@@ -251,6 +260,7 @@ import CyberHomeSections from '../components/CyberHomeSections.astro';
     
     // Handle window resize
     window.addEventListener('resize', function() {
+      if (!canvas) return;
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
     });
