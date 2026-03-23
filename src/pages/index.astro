@@ -2,216 +2,204 @@
 import Layout from '../layouts/layout.astro';
 import CyberHomeSections from '../components/CyberHomeSections.astro';
 ---
- 
+
 <Layout title="Cybersecurity Solutions">
   <main class="bg-gray-900 text-white min-h-screen">
-    <section class="relative w-full h-screen overflow-hidden">
-
-    <!-- Hero Content -->
-<canvas id="dataRain" class="absolute inset-0 w-full h-full z-0"></canvas>
-    <div class="hero-content relative z-10 flex flex-col items-center justify-center text-center px-6">
-
-    <h1 class="text-5xl md:text-6xl font-bold text-white mb-6">
-    Complete <span class="text-blue-400">Cybersecurity</span> Solutions
-    </h1>
-
-    <p class="text-gray-300 text-lg max-w-2xl mb-8">
-    Protecting businesses with SOC monitoring, incident response, and penetration testing.
-    </p>
-
-    <div class="flex gap-4">
-
-    <a href="/industries"
-    class="px-8 py-3 bg-blue-600 hover:bg-blue-500 text-white rounded-lg">
-    Explore Solutions
-    </a>
-
-    <a href="/partners"
-    class="px-8 py-3 border border-blue-500 text-blue-400 rounded-lg">
-    Technology Partners
-    </a>
-
-    </div>
-
-    </div>
-
+    <!-- Hero Section with proper vertical centering -->
+    <section class="relative w-full h-screen overflow-hidden flex items-center justify-center">
+      <!-- Data Rain Canvas -->
+      <canvas id="dataRain" class="absolute inset-0 w-full h-full z-0"></canvas>
+      
+      <!-- Hero Content: Centered both vertically and horizontally -->
+      <div class="hero-content relative z-10 flex flex-col items-center justify-center text-center px-6 max-w-5xl mx-auto">
+        <!-- Main Heading: Single logical block, better typography -->
+        <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
+          Complete <span class="text-cyan-400">Cybersecurity</span> Solutions
+        </h1>
+        
+        <!-- Subheading with clear hierarchy -->
+        <p class="text-gray-300 text-base sm:text-lg md:text-xl max-w-3xl mb-10 leading-relaxed">
+          Protecting businesses with SOC monitoring, incident response, and penetration testing.
+        </p>
+        
+        <!-- CTAs: Grouped with consistent styling -->
+        <div class="flex flex-col sm:flex-row gap-4 sm:gap-6 mb-16">
+          <a 
+            href="/industries"
+            class="px-8 py-4 bg-cyan-600 hover:bg-cyan-500 text-white font-semibold rounded-lg transition-all duration-300 shadow-lg hover:shadow-cyan-500/50"
+          >
+            Explore Solutions
+          </a>
+          <a 
+            href="/partners"
+            class="px-8 py-4 border-2 border-cyan-500 text-cyan-400 hover:bg-cyan-500/10 font-semibold rounded-lg transition-all duration-300"
+          >
+            Technology Partners
+          </a>
+        </div>
+      </div>
     </section>
 
+    <!-- Sections Component with proper spacing -->
     <CyberHomeSections />
 
-
-<section class="max-w-5xl mx-auto px-4 py-24">
-
-<h2 class="text-3xl font-bold text-blue-400 mb-10 text-center">
-Cybersecurity Solution Recommendation
-</h2>
-
-<div class="bg-gray-800 border border-gray-700 rounded-xl p-8 space-y-6">
-
-<div>
-<label class="block text-sm text-gray-300 mb-2">
-Select Industry
-</label>
-
-<select id="industry-select"
-class="w-full bg-gray-900 border border-gray-700 rounded-lg px-4 py-3 text-white">
-
-<option value="">Choose Industry</option>
-<option value="manufacturing">Manufacturing</option>
-<option value="healthcare">Healthcare</option>
-
-</select>
-</div>
-
-<div>
-<label class="block text-sm text-gray-300 mb-2">
-Infrastructure Type
-</label>
-
-<select id="infra-select"
-class="w-full bg-gray-900 border border-gray-700 rounded-lg px-4 py-3 text-white">
-
-<option value="">Choose Infrastructure</option>
-<option value="sme">SME</option>
-<option value="enterprise">Enterprise</option>
-<option value="cloud">Cloud</option>
-<option value="hybrid">Hybrid</option>
-
-</select>
-</div>
-
-<div>
-<label class="block text-sm text-gray-300 mb-2">
-Security Requirement
-</label>
-
-<select id="security-select"
-class="w-full bg-gray-900 border border-gray-700 rounded-lg px-4 py-3 text-white">
-
-<option value="">Choose Requirement</option>
-<option value="dlp">Data Loss Prevention</option>
-<option value="edr">Endpoint Security</option>
-<option value="vuln">Vulnerability Management</option>
-<option value="pam">Privileged Access Management</option>
-
-</select>
-</div>
-
-<div id="global-recommendation"
-class="bg-gray-900 border border-gray-700 rounded-lg p-4 text-gray-300">
-
-Select options above to view recommended solution.
-
-</div>
-
-<div id="security-stack"
-class="mt-6 grid gap-4 md:grid-cols-2">
-
-<div class="bg-gradient-to-r from-white/20 to-white/10 border border-gray-700 rounded-lg p-4 flex items-center gap-4">
-    <div class="w-16 h-16 flex items-center justify-center bg-white/10 rounded-md p-1">
-    <img src="/logos/arcon.png" class="h-12 object-contain" alt="ARCON">
-  </div>
-  <div>
-    <h3 class="text-blue-300 font-semibold">Identity Security</h3>
-    <p class="text-sm text-gray-400">ARCON PAM</p>
-  </div>
-</div>
-
-<div class="bg-gradient-to-r from-white/20 to-white/10 border border-gray-700 rounded-lg p-4 flex items-center gap-4">
-    <div class="w-16 h-16 flex items-center justify-center bg-white/10 rounded-md p-1">
-    <img src="/logos/sentinelone.png" class="h-12 object-contain" alt="SentinelOne">
-  </div>
-  <div>
-    <h3 class="text-blue-300 font-semibold">Endpoint Security</h3>
-    <p class="text-sm text-gray-400">SentinelOne XDR</p>
-  </div>
-</div>
-
-<div class="bg-gradient-to-r from-white/20 to-white/10 border border-gray-700 rounded-lg p-4 flex items-center gap-4">
-    <div class="w-16 h-16 flex items-center justify-center bg-white/10 rounded-md p-1">
-    <img src="/logos/forcepoint.png" class="h-12 object-contain" alt="Forcepoint">
-  </div>
-  <div>
-    <h3 class="text-blue-300 font-semibold">Data Protection</h3>
-    <p class="text-sm text-gray-400">Forcepoint DLP</p>
-  </div>
-</div>
-
-<div class="bg-gradient-to-r from-white/20 to-white/10 border border-gray-700 rounded-lg p-4 flex items-center gap-4">
-    <div class="w-14 h-14 flex items-center justify-center bg-white/10 rounded-md p-1">
-    <img src="/logos/tenable.png" class="h-10 object-contain" alt="Tenable">
-  </div>
-  <div>
-    <h3 class="text-blue-300 font-semibold">Infrastructure Security</h3>
-    <p class="text-sm text-gray-400">Tenable Vulnerability Management</p>
-  </div>
-</div>
-
-<div class="bg-gradient-to-r from-white/20 to-white/10 border border-gray-700 rounded-lg p-4 flex items-center gap-4">
-    <div class="w-16 h-16 flex items-center justify-center bg-white/10 rounded-md p-1">
-    <img src="/logos/trellix.png" class="h-12 object-contain" alt="Trellix">
-  </div>
-  <div>
-    <h3 class="text-blue-300 font-semibold">Threat Detection</h3>
-    <p class="text-sm text-gray-400">Trellix Security Platform</p>
-  </div>
-</div>
-
-</div>
-
-</div>
-
-</section>
-
+    <!-- Cybersecurity Solution Recommendation Section -->
+    <section class="max-w-5xl mx-auto px-4 py-24">
+      <h2 class="text-3xl md:text-4xl font-bold text-cyan-400 mb-12 text-center">
+        Cybersecurity Solution Recommendation
+      </h2>
+      
+      <div class="bg-gray-800 border border-gray-700 rounded-xl p-8 space-y-6">
+        <!-- Responsive grid for select controls -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div>
+            <label class="block text-sm font-medium text-gray-300 mb-3">Select Industry</label>
+            <select 
+              id="industry-select"
+              class="w-full bg-gray-900 border border-gray-700 rounded-lg px-4 py-3 text-white focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-colors"
+            >
+              <option value="">Choose Industry</option>
+              <option value="manufacturing">Manufacturing</option>
+              <option value="healthcare">Healthcare</option>
+            </select>
+          </div>
+          
+          <div>
+            <label class="block text-sm font-medium text-gray-300 mb-3">Infrastructure Type</label>
+            <select 
+              id="infra-select"
+              class="w-full bg-gray-900 border border-gray-700 rounded-lg px-4 py-3 text-white focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-colors"
+            >
+              <option value="">Choose Infrastructure</option>
+              <option value="sme">SME</option>
+              <option value="enterprise">Enterprise</option>
+              <option value="cloud">Cloud</option>
+              <option value="hybrid">Hybrid</option>
+            </select>
+          </div>
+          
+          <div>
+            <label class="block text-sm font-medium text-gray-300 mb-3">Security Requirement</label>
+            <select 
+              id="security-select"
+              class="w-full bg-gray-900 border border-gray-700 rounded-lg px-4 py-3 text-white focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-colors"
+            >
+              <option value="">Choose Requirement</option>
+              <option value="dlp">Data Loss Prevention</option>
+              <option value="edr">Endpoint Security</option>
+              <option value="vuln">Vulnerability Management</option>
+              <option value="pam">Privileged Access Management</option>
+            </select>
+          </div>
+        </div>
+        
+        <!-- Recommendation Display -->
+        <div 
+          id="global-recommendation"
+          class="bg-gray-900 border border-gray-700 rounded-lg p-6 text-gray-300 mt-6"
+        >
+          Select options above to view recommended solution.
+        </div>
+        
+        <!-- Security Stack Grid -->
+        <div id="security-stack" class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-2">
+          <!-- ARCON PAM -->
+          <div class="bg-gradient-to-r from-white/20 to-white/10 border border-gray-700 rounded-lg p-6 flex items-center gap-4 hover:border-cyan-500/50 transition-colors">
+            <div class="w-16 h-16 flex items-center justify-center bg-white/10 rounded-md p-2">
+              <img src="/logos/arcon.png" class="h-12 object-contain" alt="ARCON">
+            </div>
+            <div>
+              <h3 class="text-cyan-300 font-semibold text-lg">Identity Security</h3>
+              <p class="text-sm text-gray-400">ARCON PAM</p>
+            </div>
+          </div>
+          
+          <!-- SentinelOne XDR -->
+          <div class="bg-gradient-to-r from-white/20 to-white/10 border border-gray-700 rounded-lg p-6 flex items-center gap-4 hover:border-cyan-500/50 transition-colors">
+            <div class="w-16 h-16 flex items-center justify-center bg-white/10 rounded-md p-2">
+              <img src="/logos/sentinelone.png" class="h-12 object-contain" alt="SentinelOne">
+            </div>
+            <div>
+              <h3 class="text-cyan-300 font-semibold text-lg">Endpoint Security</h3>
+              <p class="text-sm text-gray-400">SentinelOne XDR</p>
+            </div>
+          </div>
+          
+          <!-- Forcepoint DLP -->
+          <div class="bg-gradient-to-r from-white/20 to-white/10 border border-gray-700 rounded-lg p-6 flex items-center gap-4 hover:border-cyan-500/50 transition-colors">
+            <div class="w-16 h-16 flex items-center justify-center bg-white/10 rounded-md p-2">
+              <img src="/logos/forcepoint.png" class="h-12 object-contain" alt="Forcepoint">
+            </div>
+            <div>
+              <h3 class="text-cyan-300 font-semibold text-lg">Data Protection</h3>
+              <p class="text-sm text-gray-400">Forcepoint DLP</p>
+            </div>
+          </div>
+          
+          <!-- Tenable -->
+          <div class="bg-gradient-to-r from-white/20 to-white/10 border border-gray-700 rounded-lg p-6 flex items-center gap-4 hover:border-cyan-500/50 transition-colors">
+            <div class="w-14 h-14 flex items-center justify-center bg-white/10 rounded-md p-2">
+              <img src="/logos/tenable.png" class="h-10 object-contain" alt="Tenable">
+            </div>
+            <div>
+              <h3 class="text-cyan-300 font-semibold text-lg">Infrastructure Security</h3>
+              <p class="text-sm text-gray-400">Tenable Vulnerability Management</p>
+            </div>
+          </div>
+          
+          <!-- Trellix -->
+          <div class="bg-gradient-to-r from-white/20 to-white/10 border border-gray-700 rounded-lg p-6 flex items-center gap-4 hover:border-cyan-500/50 transition-colors col-span-full lg:col-span-2">
+            <div class="w-16 h-16 flex items-center justify-center bg-white/10 rounded-md p-2">
+              <img src="/logos/trellix.png" class="h-12 object-contain" alt="Trellix">
+            </div>
+            <div>
+              <h3 class="text-cyan-300 font-semibold text-lg">Threat Detection</h3>
+              <p class="text-sm text-gray-400">Trellix Security Platform</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 </Layout>
 
-
 <script>
+  const industrySelect = document.getElementById("industry-select");
+  const infraSelect = document.getElementById("infra-select");
+  const securitySelect = document.getElementById("security-select");
+  const resultBox = document.getElementById("global-recommendation");
+  
+  function updateGlobalRecommendation() {
+    const industry = industrySelect.value;
+    const infra = infraSelect.value;
+    const security = securitySelect.value;
+    
+    if (!industry || !infra || !security) {
+      resultBox.textContent = "Select Industry, Infrastructure, and Security Requirement to view recommendation.";
+      return;
+    }
+    
+    const mapping = {
+      "manufacturing-dlp": "Forcepoint → Forcepoint DLP",
+      "manufacturing-edr": "SentinelOne / Trellix → EDR Protection",
+      "manufacturing-vuln": "Tenable → Nessus Vulnerability Scanner",
+      "manufacturing-pam": "ARCON → Privileged Access Management",
+      "healthcare-dlp": "Forcepoint → Healthcare Data Protection",
+      "healthcare-edr": "SentinelOne → Hospital Endpoint Security",
+      "healthcare-vuln": "Tenable → Medical Infrastructure Vulnerability Monitoring",
+      "healthcare-pam": "ARCON → Secure Administrative Access"
+    };
+    
+    const key = `${industry}-${security}`;
+    resultBox.textContent = mapping[key] || "Recommended OEM Vendor: Trellix Security Platform";
+  }
+  
+  industrySelect.addEventListener("change", updateGlobalRecommendation);
+  infraSelect.addEventListener("change", updateGlobalRecommendation);
+  securitySelect.addEventListener("change", updateGlobalRecommendation);
+</script>
 
-const industrySelect = document.getElementById("industry-select");
-const infraSelect = document.getElementById("infra-select");
-const securitySelect = document.getElementById("security-select");
-const resultBox = document.getElementById("global-recommendation");
-
-function updateGlobalRecommendation(){
-
-const industry = industrySelect.value;
-const infra = infraSelect.value;
-const security = securitySelect.value;
-
-if(!industry || !infra || !security){
-resultBox.textContent =
-"Select Industry, Infrastructure, and Security Requirement to view recommendation.";
-return;
-}
-
-const mapping = {
-
-"manufacturing-dlp": "Forcepoint → Forcepoint DLP",
-"manufacturing-edr": "SentinelOne / Trellix → EDR Protection",
-"manufacturing-vuln": "Tenable → Nessus Vulnerability Scanner",
-"manufacturing-pam": "ARCON → Privileged Access Management",
-
-"healthcare-dlp": "Forcepoint → Healthcare Data Protection",
-"healthcare-edr": "SentinelOne → Hospital Endpoint Security",
-"healthcare-vuln": "Tenable → Medical Infrastructure Vulnerability Monitoring",
-"healthcare-pam": "ARCON → Secure Administrative Access"
-
-};
-
-const key = `${industry}-${security}`;
-
-resultBox.textContent =
-mapping[key] || "Recommended OEM Vendor: Trellix Security Platform";
-
-}
-
-industrySelect.addEventListener("change", updateGlobalRecommendation);
-infraSelect.addEventListener("change", updateGlobalRecommendation);
-securitySelect.addEventListener("change", updateGlobalRecommendation);
-
-<!-- canvas animation script moved into layout.astro -->
+<!-- Data Rain Animation Script -->
 <script>
   document.addEventListener('DOMContentLoaded', function() {
     const canvas = document.getElementById('dataRain');
@@ -221,26 +209,31 @@ securitySelect.addEventListener("change", updateGlobalRecommendation);
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
     
-    // Characters to rain
-    const chars = '01アイウエSUMANTHオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン';
+    // Characters to rain - cybersecurity themed
+    const chars = '01アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン';
     const charArray = chars.split('');
     
     // Column properties
-    const fontSize = 16;
+    const fontSize = 14;
     const columns = canvas.width / fontSize;
     const drops = Array(Math.floor(columns)).fill(0);
     
     function draw() {
-      // Semi-transparent background to create trail effect
-      ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+      // Semi-transparent background to create trail effect - darker for better text contrast
+      ctx.fillStyle = 'rgba(2, 6, 23, 0.08)';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
       
-      // Set text style
-      ctx.fillStyle = '#0F0';
+      // Set text style - cyan/teal for cybersecurity theme
+      ctx.fillStyle = '#06b6d4'; // Cyan color
       ctx.font = fontSize + 'px monospace';
       
       for (let i = 0; i < drops.length; i++) {
         const char = charArray[Math.floor(Math.random() * charArray.length)];
+        
+        // Add subtle opacity variation
+        const opacity = Math.random() * 0.5 + 0.3;
+        ctx.globalAlpha = opacity;
+        
         ctx.fillText(char, i * fontSize, drops[i] * fontSize);
         
         // Reset drop when it reaches bottom
@@ -249,10 +242,12 @@ securitySelect.addEventListener("change", updateGlobalRecommendation);
         }
         drops[i]++;
       }
+      
+      ctx.globalAlpha = 1;
     }
     
-    // Animation loop
-    setInterval(draw, 50);
+    // Animation loop - slower for subtlety
+    setInterval(draw, 60);
     
     // Handle window resize
     window.addEventListener('resize', function() {
