@@ -163,29 +163,33 @@
 
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-  const carousel = document.getElementById('services-carousel');
-  const prevBtn = document.getElementById('carousel-prev');
-  const nextBtn = document.getElementById('carousel-next');
-
+  const carousel = document.getElementById('services-carousel') as HTMLElement | null;
+  const prevBtn = document.getElementById('carousel-prev') as HTMLElement | null;
+  const nextBtn = document.getElementById('carousel-next') as HTMLElement | null;
+  
   if (carousel && prevBtn && nextBtn) {
-    const getScrollAmount = () => {
-      const card = carousel.querySelector('.liquid-glass-card');
+    const getScrollAmount = (): number => {
+      const card = carousel.querySelector('.liquid-glass-card') as HTMLElement | null;
       return card ? card.offsetWidth + 24 : 0;
     };
-
-    prevBtn.addEventListener('click', () => {
+    
+    const scrollLeft = (): void => {
       carousel.scrollBy({ left: -getScrollAmount(), behavior: 'smooth' });
-    });
-
-    nextBtn.addEventListener('click', () => {
+    };
+    
+    const scrollRight = (): void => {
       carousel.scrollBy({ left: getScrollAmount(), behavior: 'smooth' });
-    });
+    };
+    
+    prevBtn.addEventListener('click', scrollLeft);
+    nextBtn.addEventListener('click', scrollRight);
   }
-
-  document.querySelectorAll('.liquid-glass-card').forEach(card => {
-    const glow = card.querySelector('.glass-glow');
+  
+  const cards = document.querySelectorAll('.liquid-glass-card') as NodeListOf<HTMLElement>;
+  cards.forEach(card => {
+    const glow = card.querySelector('.glass-glow') as HTMLElement | null;
     if (glow) {
-      card.addEventListener('mousemove', (e) => {
+      card.addEventListener('mousemove', (e: MouseEvent) => {
         const rect = card.getBoundingClientRect();
         const x = e.clientX - rect.left;
         const y = e.clientY - rect.top;
